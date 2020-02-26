@@ -3,9 +3,25 @@
   "version": "1.0.0",
   "description": "Converts the very large Disqus XML backup file into a more manageable and usable JSON file.",
   "main": "index.js",
-  "author": "",
+  "author": "Matheus Pratta",
   "license": "MIT",
   "dependencies": {
     "node-expat": "^2.3.18"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MatheusMK3/node-disqus-xml2json.git"
+  },
+  "keywords": [
+    "disqus",
+    "xml",
+    "json",
+    "convert",
+    "import",
+    "backup"
+  ],
+  "bugs": {
+    "url": "https://github.com/MatheusMK3/node-disqus-xml2json/issues"
+  },
+  "homepage": "https://github.com/MatheusMK3/node-disqus-xml2json#readme"
 }
