@@ -54,7 +54,8 @@ Object.values(disqusThreads).map(thread => {
         comment_author_email: '',
         comment_date: comment_date.local().format('YYYY-MM-DD HH:mm:ss'),
         comment_date_gmt: comment_date.utc().format('YYYY-MM-DD HH:mm:ss'),
-        comment_content: comment.message
+        comment_content: comment.message,
+        comment_content_filtered: '',
       }
 
       // Writes the INSERT statement
@@ -65,6 +66,7 @@ Object.values(disqusThreads).map(thread => {
         wp_comment.comment_date,
         wp_comment.comment_date_gmt,
         wp_comment.comment_content,
+        wp_comment.comment_content_filtered,
       ]) + '\n')
     }
   })
