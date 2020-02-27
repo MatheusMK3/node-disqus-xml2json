@@ -66,7 +66,7 @@ Object.values(disqusThreads).map(thread => {
       }
 
       // Writes the INSERT statement
-      output.write(sqlstr.format(`INSERT INTO wp_comments (comment_post_ID, comment_author, comment_author_email, comment_date, comment_date_gmt, comment_content) VALUES (?, ?, ?, ?, ?, ?);`, [
+      output.write(sqlstr.format(`INSERT INTO wp_comments (comment_post_ID, comment_author, comment_author_email, comment_date, comment_date_gmt, comment_content, comment_content_filtered) VALUES (?, ?, ?, ?, ?, ?, ?);`, [
         wp_comment.comment_post_ID,
         wp_comment.comment_author,
         wp_comment.comment_author_email,
