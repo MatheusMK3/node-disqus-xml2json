@@ -4,15 +4,22 @@ const moment = require('moment')
 // This is necessary to correctly format SQL for the WP database
 const sqlstr = require('sqlstring')
 
+// Generates the RegEx'es that will match any thread without an associated WP id, based-off their URLs (your-blog-here.com/id/ and your-blog-here.com/?p=id)
+const blogAddress = process.argv[2] || ''
+const blogAddressFormatted = blogAddress.replace('.', '\\.').replace('-', '\\-').replace('/', '\\/')
+const regexIdPermalink = new RegExp(`${blogAddressFormatted}\\/([\\d]+)\\/`)
+const regexIdWordpress = new RegExp(`${blogAddressFormatted}\\/\\?p=([\\d]+)`)
+
+if (blogAddress.length > 0)
+  console.info('Automatically detecting IDs from blog address:', blogAddress)
+else
+  console.info('No blog address provided, will match anything with format /id/ and /?p=id')
+
 // Imports the Disqus JSON file
 const disqusThreads = require('./disqus.json')
 
 // Notification that everything loaded fine
 console.info(`Loaded ${ Object.keys(disqusThreads).length } threads into memory from disqus.json`)
-
-// Generates the RegEx'es that will match any thread without an associated WP id, based-off their URLs (your-blog-here.com/id/ and your-blog-here.com/?p=id)
-const regexIdPermalink = /your-blog-here\.com\/([\d]+)\//
-const regexIdWordpress = /your-blog-here\.com\/\?p=([\d]+)/
 
 // Opens the output SQL file for writing
 const output = require('fs').createWriteStream('disqus.sql')
