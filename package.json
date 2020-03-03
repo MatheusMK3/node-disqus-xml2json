@@ -1,6 +1,6 @@
 {
   "name": "disqus-xml2json",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Converts the very large Disqus XML backup file into a more manageable and usable JSON file.",
   "main": "index.js",
   "author": "Matheus Pratta",
